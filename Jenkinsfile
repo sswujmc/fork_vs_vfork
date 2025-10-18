@@ -1,7 +1,9 @@
 node {
     def app
     stage('Clone repository') {
-        git 'https://github.com/sswujmc/fork_vs_vfork.git'
+        steps {
+            git branch: 'main', url: 'https://github.com/sswujmc/fork_vs_vfork.git'
+        }
     }
     stage('Build image') {
         app = docker.build("sswujmc/test")
